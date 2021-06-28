@@ -19,7 +19,11 @@ router.get("/listar", async (req, res) => {
 });
 
 router.get("/listar/:id", (req, res) => {
-  return res.json(carritos.filter((p) => String(p.id) === req.params.id));
+  try {
+    return res.json(carritos.filter((p) => String(p.id) === req.params.id));
+  } catch (err) {
+    return res.status(400).json({ message: err.message });
+  }
 });
 
 router.post("/guardar/:id", (req, res) => {
@@ -27,7 +31,7 @@ router.post("/guardar/:id", (req, res) => {
     const producto = getProducto(Number(req.params.id), req.body.producto);
 
     const carrito = new Carrito(
-      req.body.id,
+      carritos.length + 1,
       Date.now().toLocaleString("es-AR"),
       producto
     );
@@ -43,10 +47,20 @@ router.post("/guardar/:id", (req, res) => {
 });
 
 router.delete("/borrar/:id", (req, res) => {
-  const index = carritos.findIndex((p) => String(p.id) === req.params.id);
-  carritos.splice(index, 1);
+  try {
+    const index = carritos.findIndex((p) => String(p.id) === req.params.id);
+    if (index < 0) {
+      return res.status(400).json({ message: "El carrito no éxiste" });
+    }
 
-  return res.status(200).json({ message: "carrito borrado" });
+    carritos.splice(index, 1);
+
+    CarritoRepositorio.guardar(carritos);
+
+    return res.status(200).json({ message: "carrito borrado" });
+  } catch (err) {
+    return res.status(400).json({ message: err.message });
+  }
 });
 
 const getProducto = (id, producto) => {

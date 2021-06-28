@@ -32,37 +32,64 @@ router.get("/listar", async (req, res) => {
 });
 
 router.get("/listar/:id", (req, res) => {
-  return res.json(productos.filter((p) => String(p.id) === req.params.id));
+  try {
+    return res.json(productos.filter((p) => String(p.id) === req.params.id));
+  } catch (err) {
+    return res.status(400).json({ message: err.message });
+  }
 });
 
 router.post("/guardar", (req, res) => {
-  productos.push(getProducto(req.body));
+  try {
+    productos.push(getProducto(req.body));
 
-  ProductoRepositorio.guardar(productos);
+    ProductoRepositorio.guardar(productos);
 
-  return res.status(200).json({ message: "producto guardado" });
+    return res.status(200).json({ message: "producto guardado" });
+  } catch (err) {
+    return res.status(400).json({ message: err.message });
+  }
 });
 
 router.put("/actualizar/:id", (req, res) => {
-  let producto = getProducto(req.body);
+  try {
+    const index = productos.findIndex((p) => String(p.id) === req.params.id);
+    if (index < 0) {
+      return res.status(400).json({ message: "El producto no éxiste" });
+    }
 
-  const index = productos.findIndex((p) => String(p.id) === req.params.id);
-  productos[index] = producto;
+    let producto = getProducto(req.body, req.params.id);
 
-  ProductoRepositorio.guardar(productos);
+    productos[index] = producto;
 
-  return res.status(200).json({ message: "producto actualizado" });
+    ProductoRepositorio.guardar(productos);
+
+    return res.status(200).json({ message: "producto actualizado" });
+  } catch (err) {
+    return res.status(400).json({ message: err.message });
+  }
 });
 
 router.delete("/borrar/:id", (req, res) => {
-  const index = productos.findIndex((p) => String(p.id) === req.params.id);
-  productos.splice(index, 1);
+  try {
+    const index = productos.findIndex((p) => String(p.id) === req.params.id);
+    if (index < 0) {
+      return res.status(400).json({ message: "El producto no éxiste" });
+    }
+    productos.splice(index, 1);
 
-  return res.status(200).json({ message: "producto borrado" });
+    ProductoRepositorio.guardar(productos);
+
+    return res.status(200).json({ message: "producto borrado" });
+  } catch (err) {
+    return res.status(400).json({ message: err.message });
+  }
 });
 
-const getProducto = (body) => {
-  const id = productos.length + 1;
+const getProducto = (body, id = null) => {
+  if (!id) {
+    id = productos.length + 1;
+  }
   const producto = new Producto(
     id,
     Date.now().toLocaleString("es-AR"),
