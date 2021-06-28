@@ -8,11 +8,11 @@ La 1ra parte del proyecto consta de entregar una API sobre productos y carritos.
 
 ### API
 
-#### GET /productos/listar
+#### GET https://charm-slender-scaffold.glitch.me/productos/listar
 
-#### GET /productos/listar/:id
+#### GET https://charm-slender-scaffold.glitch.me/productos/listar/:id
 
-#### POST /productos/guardar
+#### POST https://charm-slender-scaffold.glitch.me/productos/guardar
 
 El id del producto es autonúmerico.
 
@@ -36,7 +36,7 @@ json
 }
 ```
 
-#### PUT /productos/actualizar/:id
+#### PUT https://charm-slender-scaffold.glitch.me/productos/actualizar/:id
 
 headers:
 
@@ -58,7 +58,7 @@ json
 }
 ```
 
-#### DELETE /productos/borrar/:id
+#### DELETE https://charm-slender-scaffold.glitch.me/productos/borrar/:id
 
 headers:
 
@@ -66,11 +66,11 @@ headers:
 administrador: true
 ```
 
-#### GET /carrito/listar
+#### GET https://charm-slender-scaffold.glitch.me/carrito/listar
 
-#### GET /carrito/listar/:id
+#### GET https://charm-slender-scaffold.glitch.me/carrito/listar/:id
 
-#### POST /carrito/guardar/id_producto
+#### POST https://charm-slender-scaffold.glitch.me/carrito/guardar/id_producto
 
 El parametro id_producto luego va a pertenecer al producto creado (Si mal no entendí).
 El id del carrito es autonúmerico.
@@ -97,4 +97,4 @@ json
 }
 ```
 
-#### DELETE /carrito/borrar/id
+#### DELETE https://charm-slender-scaffold.glitch.me/carrito/borrar/id
