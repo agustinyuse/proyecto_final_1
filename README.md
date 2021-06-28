@@ -98,3 +98,9 @@ json
 ```
 
 #### DELETE https://charm-slender-scaffold.glitch.me/carrito/borrar/id
+
+### Para correr el proyecto
+
+```
+npm start
+```
