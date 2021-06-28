@@ -4,15 +4,15 @@
 
 ## Resúmen
 
-La 1ra parte consta de entregar una API sobre productos y carritos. Estás rutas van a estar protegidas por un middleware que va a validar si el usuario es o no administrador.
+La 1ra parte del proyecto consta de entregar una API sobre productos y carritos. Estás rutas van a estar protegidas por un middleware que van a validar si el usuario es o no administrador.
 
 ### API
 
-### GET /productos/listar
+#### GET /productos/listar
 
-### GET /productos/listar/:id
+#### GET /productos/listar/:id
 
-### POST /productos/guardar
+#### POST /productos/guardar
 
 El id del producto es autonúmerico.
 
@@ -36,7 +36,7 @@ json
 }
 ```
 
-### PUT /productos/actualizar/:id
+#### PUT /productos/actualizar/:id
 
 headers:
 
@@ -58,7 +58,7 @@ json
 }
 ```
 
-### DELETE /productos/borrar/:id
+#### DELETE /productos/borrar/:id
 
 headers:
 
@@ -66,11 +66,11 @@ headers:
 administrador: true
 ```
 
-### GET /carrito/listar
+#### GET /carrito/listar
 
-### GET /carrito/listar/:id
+#### GET /carrito/listar/:id
 
-### POST /carrito/guardar/id_producto
+#### POST /carrito/guardar/id_producto
 
 El parametro id_producto luego va a pertenecer al producto creado (Si mal no entendí)
 El id del carrito es autonúmerico.
@@ -97,4 +97,4 @@ json
 }
 ```
 
-### DELETE | /carrito/borrar/id
+#### DELETE /carrito/borrar/id
