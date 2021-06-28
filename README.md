@@ -72,7 +72,7 @@ administrador: true
 
 #### POST /carrito/guardar/id_producto
 
-El parametro id_producto luego va a pertenecer al producto creado (Si mal no entendí)
+El parametro id_producto luego va a pertenecer al producto creado (Si mal no entendí).
 El id del carrito es autonúmerico.
 
 headers:
