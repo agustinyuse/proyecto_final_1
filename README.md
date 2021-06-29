@@ -27,8 +27,8 @@ json
 
 ```
  {
-  "nombre": "mortadela",
-  "descripcion": "mortadela",
+  "nombre": "test",
+  "descripcion": "test",
   "codigo":"123",
   "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6WDu8nC8fZc2mQqfxPaqrVIRdQm9zHbkMr3zR0crFRwfcxSSC5optlgl_MgErZ1E8nDL_zlquepUo1A&usqp=CAU",
   "precio": 150,
@@ -49,8 +49,8 @@ json
 
 ```
  {
-  "nombre": "mortadelaaaaa",
-  "descripcion": "mortadelaaaaaa",
+  "nombre": "test updated",
+  "descripcion": "test updated",
   "codigo":"123",
   "foto": "nohayfoto.jpg",
   "precio": 150,
@@ -86,8 +86,8 @@ json
 ```
 {
 	"producto":{
-        "nombre": "mortadela",
-        "descripcion": "mortadela",
+        "nombre": "test",
+        "descripcion": "test",
         "codigo": "123",
         "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6WDu8nC8fZc2mQqfxPaqrVIRdQm9zHbkMr3zR0crFRwfcxSSC5optlgl_MgErZ1E8nDL_zlquepUo1A&usqp=CAU",
         "precio": 150,
